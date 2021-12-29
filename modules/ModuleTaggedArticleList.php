@@ -72,7 +72,7 @@ class ModuleTaggedArticleList extends \ModuleGlobalArticlelist
 			$time = time();
 
 			// Get published articles
-			$pids = join($this->arrPages, ",");
+			$pids = implode(',', $this->arrPages);
 
 			$orders = array();
 			if (isset($GLOBALS['MISC']['tag_articles_id'][$this->id]['ORDER_BY_START'])
@@ -201,7 +201,7 @@ class ModuleTaggedArticleList extends \ModuleGlobalArticlelist
 			{
 				if (count($tagids))
 				{
-					$tagids = $this->Database->prepare("SELECT tid FROM tl_tag WHERE from_table = ? AND tag = ? AND tid IN (" . join($tagids, ",") . ")")
+					$tagids = $this->Database->prepare("SELECT tid FROM tl_tag WHERE from_table = ? AND tag = ? AND tid IN (" . implode(',', $tagids) . ")")
 						->execute('tl_article', $tag)
 						->fetchEach('tid');
 				}

@@ -164,7 +164,7 @@ class ModuleTagCloud extends \Module
 		{
 			if (count($pageArr))
 			{
-				$strUrl = ampersand($this->generateFrontendUrl($pageArr, '/tag/' . \System::urlencode(urldecode(\Input::get('tag', true))) . '/related/' . \System::urlencode(join(array_merge($relatedlist, array($tag['tag_name'])), ','))));
+				$strUrl = ampersand($this->generateFrontendUrl($pageArr, '/tag/' . \System::urlencode(urldecode(\Input::get('tag', true))) . '/related/' . \System::urlencode(implode(',', array_merge($relatedlist, array($tag['tag_name']))))));
 			}
 			$this->arrRelated[$idx]['tag_url'] = $strUrl;
 		}

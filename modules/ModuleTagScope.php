@@ -128,7 +128,7 @@ class ModuleTagScope extends \Module
 					if (count($newarr) > 1)
 					{
 						$related = array_slice($newarr, 1);
-						$tagpath .= '/related/' . \System::urlencode(join($related, ','));
+						$tagpath .= '/related/' . \System::urlencode(implode(',', $related));
 					}
 					$strUrl = ampersand($this->generateFrontendUrl($pageArr, $tagpath));
 					if (strlen($strParams))

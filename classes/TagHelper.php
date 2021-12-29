@@ -66,7 +66,7 @@ class TagHelper extends \Backend
 		}
 		if (count($arrParams))
 		{
-			$strParams = join($arrParams, '&');
+			$strParams = implode('&', $arrParams);
 		}
 		return $strParams;
 	}
@@ -100,7 +100,7 @@ class TagHelper extends \Backend
 					->fetchEach('tid');
 				if (count($ids))
 				{
-					$this->Database->prepare("DELETE FROM tl_tag WHERE tid IN (" . join($ids, ",") . ") AND from_table = ?")
+					$this->Database->prepare("DELETE FROM tl_tag WHERE tid IN (" . implode(',', $ids) . ") AND from_table = ?")
 						->execute($table);
 				}
 			}
