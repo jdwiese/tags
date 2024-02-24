@@ -15,9 +15,9 @@ class ModuleLastEventsTags extends \ModuleLastEvents
 	/**
 	 * Generate module
 	 */
-	protected function getAllEvents($arrCalendars, $intStart, $intEnd)
+	protected function getAllEvents($arrCalendars, $intStart, $intEnd, $blnFeatured = null)
 	{
-		$arrAllEvents = parent::getAllEvents($arrCalendars, $intStart, $intEnd);
+		$arrAllEvents = parent::getAllEvents($arrCalendars, $intStart, $intEnd, $blnFeatured);
 		if (strlen(urldecode(\Input::get('tag', true))))
 		{
 			$limit = null;

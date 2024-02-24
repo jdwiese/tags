@@ -22,9 +22,9 @@ class ModuleCalendarTags extends \ModuleCalendar
 	 *
 	 * @return array
 	 */
-	protected function getAllEvents($arrCalendars, $intStart, $intEnd)
+	protected function getAllEvents($arrCalendars, $intStart, $intEnd, $blnFeatured = null)
 	{
-		$arrAllEvents = parent::getAllEvents($arrCalendars, $intStart, $intEnd);
+		$arrAllEvents = parent::getAllEvents($arrCalendars, $intStart, $intEnd, $blnFeatured);
 		if (($this->tag_ignore) && !strlen($this->tag_filter)) return $arrAllEvents;
 		if (strlen(urldecode(\Input::get('tag', true))) || strlen($this->tag_filter))
 		{
