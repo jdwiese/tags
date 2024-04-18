@@ -85,7 +85,7 @@ class ContentGalleryTags extends ContentGallery
 		parent::compile();
 	}
 
-  public static function addImageToTemplate($objTemplate, $arrItem, $intMaxWidth=null, $strLightboxId=null, FilesModel $objModel=null)
+  public static function addImageToTemplate($objTemplate, $arrItem, $intMaxWidth=null, $strLightboxId=null, FilesModel $objModel=null): void
   {
       \Controller::addImageToTemplate($objTemplate, $arrItem, $intMaxWidth, $strLightboxId, $objModel);
       if (TL_MODE == 'FE')
