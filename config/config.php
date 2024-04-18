@@ -103,7 +103,9 @@ $GLOBALS['tags_extension']['sourcetable'][] = 'tl_member';
 /**
 * Add 'tag' to the URL keywords to prevent problems with URL manipulating modules like folderurl
 */
-$GLOBALS['TL_CONFIG']['urlKeywords'] .= (strlen(trim($GLOBALS['TL_CONFIG']['urlKeywords'])) ? ',' : '') . 'tag';
+if (array_key_exists('urlKeywords', $GLOBALS['TL_CONFIG'])) {
+    $GLOBALS['TL_CONFIG']['urlKeywords'] .= (strlen(trim($GLOBALS['TL_CONFIG']['urlKeywords'] ?? '')) ? ',' : '') . 'tag';
+}
 $GLOBALS['tags']['showInFeeds'] = true;
 
 $GLOBALS['TL_FFL']['tag'] = 'TagFieldMemberFrontend';
